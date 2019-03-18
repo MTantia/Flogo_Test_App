@@ -10,6 +10,7 @@ import (
 
 const (
 	HeadersPart1      = "IncomingHeaders"
+	InputCacheHeaders = "CacheHeaders"
 	InputHeaders      = "headers_in"
 )
 
@@ -34,7 +35,17 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	key := "any"
+	//fmt.Println("Trying to read the headers that should actually be cached")
+	headersToCache := context.GetInput(InputCacheHeaders)
+	//fmt.Println(headersToCache)
 
+	if headersToCache != nil && reflect.ValueOf(headersToCache).Kind() == reflect.Map {
+		headersCacheConfig := headersToCache.(map[string]interface{})
+	var headerArr []interface{}
+		// The object should contain a field called "headers"
+		headerArrRaw, headerArrPreset := headersCacheConfig["headers"]
+		if headerArrPreset {
+			headerArr = headerArrRaw.([]interface{})
 			rawHeadersIn := context.GetInput(InputHeaders)
 			log.Info("Received these headers: ", rawHeadersIn)
 			//fmt.Println(rawHeadersIn)
@@ -75,6 +86,8 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 				key = sb.String()
 			}
+		}
+	}
 		
 	log.Info("key:"+key)
 	//context.SetOutput(HeadersPart1, key)
