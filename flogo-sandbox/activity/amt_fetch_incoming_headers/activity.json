@@ -10,7 +10,7 @@
     {
       "name": "headers_in",
       "type": "params",
-      "required": true
+      "required": "true"
     }
   ]
   , "outputs": [
