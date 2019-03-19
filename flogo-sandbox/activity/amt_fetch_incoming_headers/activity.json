@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "title": "AMT Fetch Incoming Headers",
   "type": "flogo:activity",
-  "ref": "github.com/lspwd2-klm/afklm-flogo/flogo-sandbox/activity/amt_fetch_incoming_headers",
+ // "ref": "github.com/lspwd2-klm/afklm-flogo/flogo-sandbox/activity/amt_fetch_incoming_headers",
   "description": "Fetching and logging the incoming headers",
   "author": "Monika Tantia",
   "inputs":[
