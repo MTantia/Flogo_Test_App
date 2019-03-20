@@ -28,7 +28,7 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 // Eval implements activity.Activity.Eval
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
- 	http.HandleFunc("/", handler)
+ 	 http.HandleFunc("/", handler)
     log.Fatal(http.ListenAndServe("localhost:8000", nil))
 	return true, nil
 }
@@ -49,4 +49,3 @@ func handler(w http.ResponseWriter, inputHeaders *http.Request) {
     //Get value for a specified token
     fmt.Fprintf(w, "\n\nFinding value of \"Accept\" %q", inputHeaders.Header["Accept"])
 }
-

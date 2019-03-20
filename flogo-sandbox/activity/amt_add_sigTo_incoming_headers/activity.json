@@ -16,6 +16,6 @@
   , "outputs": [
   	{
   		"name":"output_Headers"
-  		"type":"params"
+  		"type":"any"
   	}]
 }
