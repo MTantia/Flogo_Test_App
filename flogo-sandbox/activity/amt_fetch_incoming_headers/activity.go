@@ -1,11 +1,11 @@
 package amt_fetch_incoming_headers
 
 import (
-	"bytes"
+	//"bytes"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
-	"reflect"
-	"strings"
+	//"reflect"
+	//"strings"
 )
 
 const (
@@ -92,6 +92,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	// log.Info("key:"+key)
 	// //context.SetOutput(HeadersPart1, key)
 
-	// return true, nil
-	log.info("test logger inside function")
+	
+	log.Info("test logger inside function")
+	return true, nil
 }
