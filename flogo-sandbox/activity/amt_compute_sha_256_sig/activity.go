@@ -31,7 +31,6 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	sig := sha256.New()
-	//var utc = time.Now().Unix()
 	sig.Write([]byte("pvz3r3qgafb6qcaapgjt68nj" + "vNubFQXk7r" +strconv.FormatInt(time.Now().Unix(),10) ))
 	fmt.Printf("%x", sig.Sum(nil))
 
