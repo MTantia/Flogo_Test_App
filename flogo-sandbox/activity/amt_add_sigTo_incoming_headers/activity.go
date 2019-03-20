@@ -3,13 +3,12 @@ package amt_add_sigTo_incoming_headers
 import (
 	
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	// "github.com/TIBCOSoftware/flogo-lib/logger"
 	"fmt"
-    "log"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
     "net/http"
 )
 
- log = logger.GetLogger("AMT Compute SHA56 Sig")
+var log = logger.GetLogger("amt_fetch_incoming_headers")
 
 // MyActivity is a stub for your Activity implementation
 type MyActivity struct {
@@ -28,7 +27,7 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
     http.HandleFunc("/", handler)
-    log.Fatal(http.ListenAndServe("localhost:8000", nil))
+    log.Error(http.ListenAndServe("localhost:8000", nil))
 	return true, nil
 }
 
