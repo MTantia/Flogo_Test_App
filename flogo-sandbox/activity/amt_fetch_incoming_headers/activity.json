@@ -9,8 +9,14 @@
   "inputs":[
     {
       "name": "headers_in",
-      "type": "params"
+      "type": "params",
+      "required": "true"
     }
   ]
-  , "outputs": []
+  , "outputs": [
+    {
+      "name": "InputHeaders",
+      "type": "string"
+    }
+  ]
 }

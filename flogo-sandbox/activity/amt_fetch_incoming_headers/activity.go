@@ -34,63 +34,64 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 // Eval implements activity.Activity.Eval
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
-	key := "any"
-	//fmt.Println("Trying to read the headers that should actually be cached")
-	headersToCache := context.GetInput(InputCacheHeaders)
-	//fmt.Println(headersToCache)
+	// key := "any"
+	// //fmt.Println("Trying to read the headers that should actually be cached")
+	// headersToCache := context.GetInput(InputCacheHeaders)
+	// //fmt.Println(headersToCache)
 
-	if headersToCache != nil && reflect.ValueOf(headersToCache).Kind() == reflect.Map {
-		headersCacheConfig := headersToCache.(map[string]interface{})
-	var headerArr []interface{}
-		// The object should contain a field called "headers"
-		headerArrRaw, headerArrPreset := headersCacheConfig["headers"]
-		if headerArrPreset {
-			headerArr = headerArrRaw.([]interface{})
-			rawHeadersIn := context.GetInput(InputHeaders)
-			log.Info("Received these headers: ", rawHeadersIn)
-			//fmt.Println(rawHeadersIn)
-			if rawHeadersIn != nil && reflect.ValueOf(rawHeadersIn).Kind() == reflect.Map {
+	// if headersToCache != nil && reflect.ValueOf(headersToCache).Kind() == reflect.Map {
+	// 	headersCacheConfig := headersToCache.(map[string]interface{})
+	// var headerArr []interface{}
+	// 	// The object should contain a field called "headers"
+	// 	headerArrRaw, headerArrPreset := headersCacheConfig["headers"]
+	// 	if headerArrPreset {
+	// 		headerArr = headerArrRaw.([]interface{})
+	// 		rawHeadersIn := context.GetInput(InputHeaders)
+	// 		log.Info("Received these headers: ", rawHeadersIn)
+	// 		//fmt.Println(rawHeadersIn)
+	// 		if rawHeadersIn != nil && reflect.ValueOf(rawHeadersIn).Kind() == reflect.Map {
 
-				headersMap := make(map[string]string)
+	// 			headersMap := make(map[string]string)
 
-				// Convert the headers to forced-lowercase.
-				strRawHeadersIn := rawHeadersIn.(map[string]string)
-				for key, val := range strRawHeadersIn {
-					headersMap[strings.ToLower(key)] = val
-				}
+	// 			// Convert the headers to forced-lowercase.
+	// 			strRawHeadersIn := rawHeadersIn.(map[string]string)
+	// 			for key, val := range strRawHeadersIn {
+	// 				headersMap[strings.ToLower(key)] = val
+	// 			}
 
-				log.Info("Converted array of headers:")
-				log.Info(headersMap)
+	// 			log.Info("Converted array of headers:")
+	// 			log.Info(headersMap)
 
-				var sb bytes.Buffer
+	// 			var sb bytes.Buffer
 
-				for _, headerKey := range headerArr {
-					//fmt.Println(headerKey)
+	// 			for _, headerKey := range headerArr {
+	// 				//fmt.Println(headerKey)
 
-					passedHeader, present := headersMap[strings.ToLower(headerKey.(string))]
-					//fmt.Println(passedHeader)
+	// 				passedHeader, present := headersMap[strings.ToLower(headerKey.(string))]
+	// 				//fmt.Println(passedHeader)
 
-					var delta string
+	// 				var delta string
 
-					if present {
-						delta = passedHeader
-						log.Info("Found required header ", headerKey, " = ", delta)
-					} else {
-						log.Info("Required header ", headerKey, " was not passed in this request.")
-						delta = "*"
-					}
+	// 				if present {
+	// 					delta = passedHeader
+	// 					log.Info("Found required header ", headerKey, " = ", delta)
+	// 				} else {
+	// 					log.Info("Required header ", headerKey, " was not passed in this request.")
+	// 					delta = "*"
+	// 				}
 
-					sb.WriteString("/")
-					sb.WriteString(delta)
-				}
+	// 				sb.WriteString("/")
+	// 				sb.WriteString(delta)
+	// 			}
 
-				key = sb.String()
-			}
-		}
-	}
+	// 			key = sb.String()
+	// 		}
+	// 	}
+	// }
 		
-	log.Info("key:"+key)
-	//context.SetOutput(HeadersPart1, key)
+	// log.Info("key:"+key)
+	// //context.SetOutput(HeadersPart1, key)
 
-	return true, nil
+	// return true, nil
+	log.info("test logger inside function")
 }
