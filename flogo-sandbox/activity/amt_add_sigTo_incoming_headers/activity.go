@@ -3,12 +3,13 @@ package amt_add_sigTo_incoming_headers
 import (
 	
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
+	// "github.com/TIBCOSoftware/flogo-lib/logger"
 	"fmt"
+    "log"
 
 )
 
-var log = logger.GetLogger("AMT Compute SHA56 Sig")
+ log = logger.GetLogger("AMT Compute SHA56 Sig")
 
 // MyActivity is a stub for your Activity implementation
 type MyActivity struct {
