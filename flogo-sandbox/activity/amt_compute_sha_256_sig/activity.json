@@ -1,0 +1,16 @@
+{
+  "name": "AMT Compute SHA56 Sig",
+  "version": "0.0.1",
+  "title": "AMT Compute SHA56 Sig",
+  "type": "flogo:activity",
+  "ref": "github.com/MTantia/Flogo_Test_App/tree/master/flogo-sandbox/activity/amt_compute_sha_256_sig",
+  "description": "activity to compute SHA 256 Sig from given key and secret",
+  "author": "Monika Tantia",
+  "inputs":[]
+  , "outputs":
+  [
+  	{
+  	"sig":"sig"
+  	}
+  ]
+}

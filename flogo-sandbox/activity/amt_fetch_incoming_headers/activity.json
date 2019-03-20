@@ -8,15 +8,13 @@
   "author": "Monika Tantia",
   "inputs":[
     {
-      "name": "headers_in",
-      "type": "params",
-      "required": "true"
+      
     }
   ]
   , "outputs": [
     {
-      "name": "InputHeaders",
-      "type": "string"
+      "name": "inputHeaders",
+      "type": "params"
     }
   ]
 }
