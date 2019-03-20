@@ -6,7 +6,7 @@ import (
 	// "github.com/TIBCOSoftware/flogo-lib/logger"
 	"fmt"
     "log"
-
+    "net/http"
 )
 
  log = logger.GetLogger("AMT Compute SHA56 Sig")
