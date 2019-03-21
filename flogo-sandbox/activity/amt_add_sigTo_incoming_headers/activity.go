@@ -7,6 +7,9 @@ import (
 	"github.com/TIBCOSoftware/flogo-lib/logger"
     "net/http"
 )
+const(
+	sha256_Sig = "sha256_Signature"
+)
 
 var log = logger.GetLogger("amt_fetch_incoming_headers")
 
@@ -35,7 +38,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 
-	r.Header.Add("x-signature", "actual sig on runtime")
+	r.Header.Add("x-signature", sha256_Sig)
 
     fmt.Fprintf(w, "%s %s %s \n", r.Method, r.URL, r.Proto)
 

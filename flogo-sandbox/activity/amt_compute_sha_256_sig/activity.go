@@ -30,10 +30,9 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
-	sig := sha256.New()
-	sig.Write([]byte("pvz3r3qgafb6qcaapgjt68nj" + "vNubFQXk7r" +strconv.FormatInt(time.Now().Unix(),10) ))
-	fmt.Printf("%x", sig.Sum(nil))
+	sha256_Signature := sha256.New()
+	sha256_Signature.Write([]byte("pvz3r3qgafb6qcaapgjt68nj" + "vNubFQXk7r" +strconv.FormatInt(time.Now().Unix(),10) ))
+	fmt.Printf("%x", sha256_Signature.Sum(nil))
 
 	return true, nil
 }
-

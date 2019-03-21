@@ -10,7 +10,7 @@
   , "outputs":
   [
   	{
-  	"name":"sha256_signature",
+  	"name":"sha256_Signature",
     "type": "string"
   	}
   ]

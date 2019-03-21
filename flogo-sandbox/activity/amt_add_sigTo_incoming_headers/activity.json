@@ -8,7 +8,7 @@
   "author": "Monika Tantia",
   "inputs":[
   	{
-  	"name":"sig",
+  	"name":"sha256_Signature",
   	"type":"string",
   	"required":true
   	}
