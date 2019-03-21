@@ -4,8 +4,6 @@ import (
 	"github.com/go-redis/redis"
 	"io/ioutil"
 	"testing"
-	"time"
-
 	"github.com/TIBCOSoftware/flogo-contrib/action/flow/test"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 )

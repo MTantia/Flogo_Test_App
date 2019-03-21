@@ -3,19 +3,19 @@
   "version": "0.0.1",
   "title": "AMT Add Sig to Incoming Headers",
   "type": "flogo:activity",
-  "ref": "github.com/MTantia/Flogo_Test_App/tree/master/flogo-sandbox/activity/amt_add_sigTo_incoming_headers",
+  "ref": "github.com/MTantia/Flogo_Test_App/flogo-sandbox/activity/amt_add_sigTo_incoming_headers",
   "description": "activity to Add Sig to Incoming Headers",
   "author": "Monika Tantia",
   "inputs":[
   	{
-  	"name":"sig"
-  	"type":"string"
+  	"name":"sig",
+  	"type":"string",
   	"required":true
   	}
   ]
   , "outputs": [
   	{
-  		"name":"output_Headers"
+  		"name":"output_Headers",
   		"type":"any"
   	}]
 }

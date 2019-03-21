@@ -27,7 +27,7 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
     http.HandleFunc("/", handler)
-  //  log.Error(http.ListenAndServe("localhost:8000", nil))
+   log.Error(http.ListenAndServe("localhost:8000", nil))
 	return true, nil
 }
 
@@ -35,7 +35,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 
-	//r.Header.Add("x-signature", "actual sig on runtime")
+	r.Header.Add("x-signature", "actual sig on runtime")
 
     fmt.Fprintf(w, "%s %s %s \n", r.Method, r.URL, r.Proto)
 
