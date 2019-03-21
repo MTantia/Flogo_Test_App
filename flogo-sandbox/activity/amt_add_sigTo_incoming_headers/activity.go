@@ -1,16 +1,15 @@
 package amt_add_sigTo_incoming_headers
 
 import (
-	
-	"github.com/TIBCOSoftware/flogo-lib/core/activity"
+	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
+	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
-    "net/http"
+	"net/http"
+	"strconv"
+	"time"
 )
-const(
-	sha256_Sig = "sha256_Signature"
-)
-
 var log = logger.GetLogger("amt_fetch_incoming_headers")
 
 // MyActivity is a stub for your Activity implementation
@@ -29,27 +28,23 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 }
 
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
-    http.HandleFunc("/", handler)
-   log.Error(http.ListenAndServe("localhost:8000", nil))
+
+	http.HandleFunc("/", handler)
+
+   // http.HandleFunc("/", handler)
+   //log.Error(http.ListenAndServe("localhost:8000", nil))
 	return true, nil
 }
 
 
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func handler(w http.ResponseWriter, input_Headers *http.Request) {
 
-	r.Header.Add("x-signature", sha256_Sig)
+	sha256_Signature := sha256.New()
+	//test environment details hardcoded
+	sha256_Signature.Write([]byte("pvz3r3qgafb6qcaapgjt68nj" + "vNubFQXk7r" +strconv.FormatInt(time.Now().Unix(),10) ))
+	fmt.Printf("%x", hex.EncodeToString(sha256_Signature.Sum(nil)))
 
-    fmt.Fprintf(w, "%s %s %s \n", r.Method, r.URL, r.Proto)
-
-    //Iterate over all header fields
-    for k, v := range r.Header {
-        fmt.Fprintf(w, "Header field %q, Value %q\n", k, v)
-    }
-
-    fmt.Fprintf(w, "Host = %q\n", r.Host)
-    fmt.Fprintf(w, "RemoteAddr= %q\n", r.RemoteAddr)
-    //Get value for a specified token
-    fmt.Fprintf(w, "\n\nFinding value of \"Accept\" %q", r.Header["Accept"])
+	input_Headers.Header.Add("x-signature", hex.EncodeToString(sha256_Signature.Sum(nil)))
 }
 

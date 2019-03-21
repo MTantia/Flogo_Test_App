@@ -6,16 +6,12 @@
   "ref": "github.com/MTantia/Flogo_Test_App/flogo-sandbox/activity/amt_add_sigTo_incoming_headers",
   "description": "activity to Add Sig to Incoming Headers",
   "author": "Monika Tantia",
-  "inputs":[
-  	{
-  	"name":"sha256_Signature",
-  	"type":"string",
-  	"required":true
-  	}
+  "inputs": [
+    {}
   ]
   , "outputs": [
   	{
-  		"name":"output_Headers",
+  		"name":"input_Headers",
   		"type":"any"
   	}]
 }
