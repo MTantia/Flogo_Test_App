@@ -35,7 +35,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 
-	r.Header.Add("x-signature", "actual sig on runtime")
+	//r.Header.Add("x-signature", "actual sig on runtime")
 
     fmt.Fprintf(w, "%s %s %s \n", r.Method, r.URL, r.Proto)
 
