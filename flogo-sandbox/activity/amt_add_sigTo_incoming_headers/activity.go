@@ -27,7 +27,7 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
     http.HandleFunc("/", handler)
-    log.Error(http.ListenAndServe("localhost:8000", nil))
+  //  log.Error(http.ListenAndServe("localhost:8000", nil))
 	return true, nil
 }
 
