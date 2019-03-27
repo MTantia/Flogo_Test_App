@@ -11,8 +11,7 @@
   [
   	{
   	"name":"sha256_Signature",
-    "type": "string",
-    "value":"$.sha256_Signature"
+    "type": "string"
   	}
   ]
 }
