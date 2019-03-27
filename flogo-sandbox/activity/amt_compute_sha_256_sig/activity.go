@@ -1,57 +1,39 @@
+
 package amt_compute_sha_256_sig
 
 import (
-	"crypto/sha256"
+
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
-	"strconv"
+	"crypto/sha256"
+	"fmt"
 	"time"
+	"strconv"
+
 )
 
-// log is the default package logger
-var log = logger.GetLogger("amt_compute_sha_256_sig")
+var log = logger.GetLogger("AMT Compute SHA56 Sig")
 
-const (
-	ivKey = "key"
-	ivSecret = "secret"
-
-	ovHex = "hex"
-	ovBase64 = "base64"
-)
-
-// Sha256Activity is a stub for your Activity implementation
-type Sha256Activity struct {
+// MyActivity is a stub for your Activity implementation
+type MyActivity struct {
 	metadata *activity.Metadata
 }
 
 // NewActivity creates a new activity
 func NewActivity(metadata *activity.Metadata) activity.Activity {
-	return &Sha256Activity{metadata: metadata}
+	return &MyActivity{metadata: metadata}
 }
 
 // Metadata implements activity.Activity.Metadata
-func (a *Sha256Activity) Metadata() *activity.Metadata {
+func (a *MyActivity) Metadata() *activity.Metadata {
 	return a.metadata
 }
 
-// Eval implements activity.Activity.Eval
-func (a *Sha256Activity) Eval(context activity.Context) (done bool, err error) {
+func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
-	key := context.GetInput(ivKey).(string)
-	secret := context.GetInput(ivSecret).(string)
-
-	s := key + secret + strconv.FormatInt(time.Now().Unix(), 10)
-	hash := sha256.New()
-	hash.Write([]byte(s))
-
-	hex := hash.Sum(nil)
-	log.Debugf("hex = %s", hex)
-
-	base64 := hash.Sum(nil)
-	log.Debugf("base64 = %s", base64)
-
-	context.SetOutput(ovHex, hex)
-	context.SetOutput(ovBase64, base64)
-
+	sha256_Signature := sha256.New()
+	sha256_Signature.Write([]byte("pvz3r3qgafb6qcaapgjt68nj" + "vNubFQXk7r" +strconv.FormatInt(time.Now().Unix(),10) ))
+	fmt.Printf("%x", sha256_Signature.Sum(nil))
+	context.SetOutput("sha256_Signature", sha256_Signature.Sum(nil));
 	return true, nil
 }

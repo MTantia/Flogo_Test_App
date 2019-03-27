@@ -1,29 +1,17 @@
 {
-  "name": "amt_compute_sha_256_sig",
+  "name": "AMT Compute SHA56 Sig",
   "version": "0.0.1",
-  "type": "flogo:activity",
   "title": "AMT Compute SHA56 Sig",
-  "description": "Computes SHA 256 Sig (base64) from given key and secret",
+  "type": "flogo:activity",
   "ref": "github.com/MTantia/Flogo_Test_App/flogo-sandbox/activity/amt_compute_sha_256_sig",
-  "author": "Monika",
-  "inputs": [
-    {
-      "name": "key",
-      "type": "string"
-    },
-    {
-      "name": "secret",
-      "type": "string"
-    }
-  ],
-  "outputs": [
-    {
-      "name": "hex",
-      "type": "string"
-    },
-    {
-      "name": "base64",
-      "type": "string"
-    }
+  "description": "activity to compute SHA 256 Sig from given key and secret",
+  "author": "Monika Tantia",
+  "inputs":[]
+  , "outputs":
+  [
+  	{
+  	"name":"sha256_Signature",
+    "type": "string"
+  	}
   ]
 }
