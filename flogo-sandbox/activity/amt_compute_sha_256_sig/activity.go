@@ -46,10 +46,10 @@ func (a *Sha256Activity) Eval(context activity.Context) (done bool, err error) {
 	hash := sha256.New()
 	hash.Write([]byte(s))
 
-	hex := hex.EncodeToString(hash.Sum(nil))
+	hex := hash.Sum(nil)
 	log.Debugf("hex = %s", hex)
 
-	base64 := base64.URLEncoding.EncodeToString(hash.Sum(nil))
+	base64 := hash.Sum(nil)
 	log.Debugf("base64 = %s", base64)
 
 	context.SetOutput(ovHex, hex)
