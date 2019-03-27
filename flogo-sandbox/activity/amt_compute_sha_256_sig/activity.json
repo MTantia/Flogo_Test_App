@@ -4,8 +4,8 @@
   "type": "flogo:activity",
   "title": "AMT Compute SHA56 Sig",
   "description": "Computes SHA 256 Sig (base64) from given key and secret",
-  "ref": "github.com/ocbitnl/flogo-components/activity/amt_compute_sha_256_sig",
-  "author": "Your Name <you.name@example.org>",
+  "ref": "github.com/MTantia/Flogo_Test_App/flogo-sandbox/activity/amt_compute_sha_256_sig",
+  "author": "Monika",
   "inputs": [
     {
       "name": "key",
