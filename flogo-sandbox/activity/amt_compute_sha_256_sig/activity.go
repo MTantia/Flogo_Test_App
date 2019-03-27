@@ -33,6 +33,6 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	sha256_Signature := sha256.New()
 	sha256_Signature.Write([]byte("pvz3r3qgafb6qcaapgjt68nj" + "vNubFQXk7r" +strconv.FormatInt(time.Now().Unix(),10) ))
 	fmt.Printf("%x", sha256_Signature.Sum(nil))
-	context.SetOutput("sha256_Signature", sha256_Signature);
+	context.SetOutput("sha256_Signature", sha256_Signature.Sum(nil));
 	return true, nil
 }
