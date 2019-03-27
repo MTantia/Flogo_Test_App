@@ -2,8 +2,6 @@ package amt_compute_sha_256_sig
 
 import (
 	"crypto/sha256"
-	"encoding/base64"
-	"encoding/hex"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 	"strconv"
