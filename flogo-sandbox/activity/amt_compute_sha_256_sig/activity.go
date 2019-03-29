@@ -1,4 +1,3 @@
-
 package amt_compute_sha_256_sig
 
 import (
@@ -11,7 +10,9 @@ import (
 	"strconv"
 
 )
-
+const (
+	sha256_SignatureOutput = "sha256_SignatureOutput"
+)
 var log = logger.GetLogger("AMT Compute SHA56 Sig")
 
 // MyActivity is a stub for your Activity implementation
@@ -34,6 +35,8 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	sha256_Signature := sha256.New()
 	sha256_Signature.Write([]byte("pvz3r3qgafb6qcaapgjt68nj" + "vNubFQXk7r"+strconv.FormatInt(time.Now().Unix(),10)))
 	fmt.Printf("%x", sha256_Signature.Sum(nil))
-	context.SetOutput("sha256_Signature", sha256_Signature.Sum(nil));
+	context.SetOutput("sha256_SignatureOutput", sha256_Signature.Sum(nil));
+	fmt.Println(context.GetOutput(sha256_SignatureOutput));
 	return true, nil
 }
+
